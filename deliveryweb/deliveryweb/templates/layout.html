@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Delivery Automation Car</title>
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Swiper.js (Slider) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- AOS.js (Hiệu ứng cuộn) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/content/site.css">
+    <style>
+        .btn-modern {
+            transition: all 0.3s ease-in-out;
+            border-radius: 30px;
+        }
+
+            .btn-modern:hover {
+                transform: scale(1.05);
+                box-shadow: 0px 4px 10px rgba(255, 193, 7, 0.5);
+            }
+    </style>
+</head>
+
+<body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-uppercase" href="/">
+                <i class="fas fa-truck"></i> Delivery Automation Car
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-warning px-3 btn-modern" href="{{ url_for('order_process', step='track') }}">
+                            <i class="fas fa-search"></i> Tra cứu & Theo dõi đơn hàng
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-3">
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light btn-modern" href="{{ url_for('login') }}">
+                            <i class="fas fa-sign-in-alt"></i> Đăng nhập
+                        </a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-warning btn-modern" href="{{ url_for('register') }}">
+                            <i class="fas fa-user-plus"></i> Đăng ký
+                        </a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-success btn-modern" href="{{ url_for('payment_page') }}">
+                            <i class="fas fa-credit-card"></i> Thanh Toán
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION + SWIPER SLIDER -->
+    {% if title == "Home Page" %}
+    <header class="hero-section text-white text-center">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="/static/images/banner1.jpg" alt="Giao hàng tự động">
+                </div>
+                <div class="swiper-slide">
+                    <img src="/static/images/banner2.jpg" alt="Công nghệ tiên tiến">
+                </div>
+                <div class="swiper-slide">
+                    <img src="/static/images/banner3.jpg" alt="Dịch vụ nhanh chóng">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </header>
+    {% endif %}
+
+    <!-- MAIN CONTENT -->
+    <div class="container body-content my-5">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer bg-dark text-white text-center py-4">
+        <div class="container">
+            <p>&copy; {{ year }} - Delivery Automation Car. All rights reserved.</p>
+            <p>
+                <a href="{{ url_for('contact') }}" class="text-warning">Liên hệ</a> |
+                <a href="{{ url_for('about') }}" class="text-warning">Về chúng tôi</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- AOS.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Custom Scripts -->
+    <script>
+        // Swiper.js (Slider)
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            autoplay: { delay: 3000 },
+        });
+
+        // AOS.js (Hiệu ứng cuộn)
+        AOS.init();
+    </script>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

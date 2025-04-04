@@ -1,0 +1,102 @@
+﻿{% extends 'layout.html' %}
+
+{% block title %}Trang chủ - Transformer{% endblock %}
+
+{% block content %}
+
+<!-- Slideshow Banner -->
+<div class="banner">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="{{ url_for('static', filename='images/banner1.jpg') }}" alt="Giao hàng tự động">
+                <div class="overlay">
+                    <h2>Giao Hàng Bằng Xe Tự Hành</h2>
+                    <p>Tiên phong trong lĩnh vực giao hàng thông minh</p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="{{ url_for('static', filename='images/banner2.jpg') }}" alt="Xe tự hành">
+                <div class="overlay">
+                    <h2>Định Tuyến Thông Minh</h2>
+                    <p>Giảm thời gian, tối ưu chi phí vận chuyển</p>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="{{ url_for('static', filename='images/banner3.jpg') }}" alt="Tương lai vận chuyển">
+                <div class="overlay">
+                    <h2>Giao Hàng Tương Lai</h2>
+                    <p>An toàn, nhanh chóng, thân thiện môi trường</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<!-- Giới thiệu với hiệu ứng xuất hiện -->
+<section class="about-section" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title">🚀 Tại sao chọn Transformer?</h2>
+        <p class="section-desc">
+            Chúng tôi tiên phong trong giao hàng tự động bằng xe tự hành, giúp tiết kiệm thời gian và tối ưu chi phí.
+        </p>
+        <img src="{{ url_for('static', filename='images/about_us.jpg') }}" alt="Về chúng tôi" class="about-img">
+    </div>
+</section>
+
+<!-- Các lợi ích chính -->
+<section class="benefits">
+    <div class="container">
+        <h2 class="section-title">🔹 Lợi ích nổi bật</h2>
+        <div class="benefit-items">
+            <div class="benefit-item" data-aos="zoom-in">
+                <img src="{{ url_for('static', filename='images/speed.png') }}" alt="Nhanh chóng">
+                <h3>Giao hàng nhanh chóng</h3>
+                <p>Xe tự hành tối ưu tuyến đường để rút ngắn thời gian.</p>
+            </div>
+            <div class="benefit-item" data-aos="zoom-in" data-aos-delay="200">
+                <img src="{{ url_for('static', filename='images/safe.png') }}" alt="An toàn">
+                <h3>An toàn tuyệt đối</h3>
+                <p>AI giúp tránh va chạm, bảo vệ hàng hóa.</p>
+            </div>
+            <div class="benefit-item" data-aos="zoom-in" data-aos-delay="400">
+                <img src="{{ url_for('static', filename='images/eco.png') }}" alt="Thân thiện môi trường">
+                <h3>Thân thiện môi trường</h3>
+                <p>Sử dụng công nghệ xe điện giúp giảm khí thải.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Các dịch vụ chính với hiệu ứng trượt từ trái/phải -->
+<section class="services">
+    <div class="container">
+        <h2 class="section-title">💼 Dịch vụ của chúng tôi</h2>
+        <div class="service-list">
+            <div class="service-item" data-aos="fade-right">
+                <h3>🚀 Giao hàng nhanh</h3>
+                <p>Đặt hàng dễ dàng và nhận hàng trong vài giờ.</p>
+            </div>
+            <div class="service-item" data-aos="fade-left" data-aos-delay="200">
+                <h3>📍 Theo dõi đơn hàng</h3>
+                <p>Hệ thống tracking theo thời gian thực.</p>
+            </div>
+            <div class="service-item" data-aos="fade-right" data-aos-delay="400">
+                <h3>💳 Thanh toán linh hoạt</h3>
+                <p>Hỗ trợ ví điện tử, thẻ ngân hàng.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA kêu gọi hành động -->
+<section class="cta" data-aos="fade-up">
+    <div class="container text-center">
+        <h2>Trải nghiệm giao hàng tự động hàng đầu</h2>
+        <p>Bắt đầu ngay hôm nay để tận hưởng dịch vụ giao hàng nhanh nhất và thông minh nhất.</p>
+        <a href="/register" class="btn-primary">Đăng Ký Ngay</a>
+    </div>
+</section>
+
+{% endblock %}

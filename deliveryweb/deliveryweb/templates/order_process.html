@@ -1,0 +1,35 @@
+﻿{% extends 'layout.html' %}
+
+{% block title %}Tra cứu đơn hàng{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center text-primary">🔍 Tra cứu & Theo dõi đơn hàng</h2>
+    <p class="text-center">Nhập mã đơn hàng để kiểm tra trạng thái giao hàng.</p>
+
+    <form action="{{ url_for('track_order') }}" method="GET" class="d-flex justify-content-center">
+        <input type="text" name="order_id" class="form-control w-50 me-2" placeholder="Nhập mã đơn hàng..." required>
+        <button type="submit" class="btn btn-primary px-4"><i class="fas fa-search"></i> Tra cứu</button>
+    </form>
+
+    {% if order %}
+    <hr class="my-4">
+    <div class="card shadow-lg p-4">
+        <h3 class="text-success">📦 Thông tin đơn hàng</h3>
+        <p><strong>Mã đơn hàng:</strong> {{ order.id }}</p>
+        <p><strong>Trạng thái:</strong> <span class="badge bg-info">{{ order.status }}</span></p>
+        <p><strong>Ngày đặt hàng:</strong> {{ order.date }}</p>
+        <p><strong>Giao tới:</strong> {{ order.address }}</p>
+        
+        <!-- Thanh tiến trình trạng thái đơn hàng -->
+        <div class="progress mt-3">
+            <div class="progress-bar bg-success" role="progressbar" style="width: {{ order.progress }}%" 
+                aria-valuenow="{{ order.progress }}" aria-valuemin="0" aria-valuemax="100">
+                {{ order.progress }}%
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
