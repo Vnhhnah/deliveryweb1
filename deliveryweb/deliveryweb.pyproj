@@ -46,6 +46,7 @@
     <Content Include="deliveryweb\templates\login.html" />
     <Content Include="deliveryweb\templates\order_process.html" />
     <Content Include="deliveryweb\templates\register.html" />
+    <Content Include="web.config" />
     <None Include="Properties\PublishProfiles\deliveryweb20250402220532 - Web Deploy.pubxml" />
     <Content Include="requirements.txt" />
     <Content Include="deliveryweb\static\content\bootstrap.css" />
